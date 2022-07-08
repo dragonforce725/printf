@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhenriqu <marcos.henrique.com.br725@gmail  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 02:14:51 by mhenriqu          #+#    #+#             */
-/*   Updated: 2022/07/08 06:29:23 by mhenriqu         ###   ########.fr       */
+/*   Created: 2022/07/08 02:22:50 by mhenriqu          #+#    #+#             */
+/*   Updated: 2022/07/08 03:28:57 by mhenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-int	ft_printf(const char *format, ...)
-{
-	va_list	ap;
-	int		i;
-	int		ret;
+# include <stdarg.h>
+# include <unistd.h>
+# include "libft.h"
 
-	i = 0;
-	ret = 0;
-	va_start(ap, format);
-	
-	while (format[i])
-	{
-		if (format[i] == '%' && ft_strchr("cspdiuxX%", format[i + 1]))
-		{
-			ret += ft_print_arg(format, i, ap);
-			i++;
-		}
-		else
-			ret += ft_putchar(format[i]);
-		i++;
-	}
-	va_end(ap);
-	return (ret);
-}
+int	ft_putnbr(int nbr);
+int ft_putstr(char *str);
+int ft_print(cont char *format, ...);
+int ft_putchar(char c);
+int ft_putnbr(int nbr);
+
+#endif

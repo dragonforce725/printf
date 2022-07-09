@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_u.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 04:22:39 by mhenriqu          #+#    #+#             */
-/*   Updated: 2022/07/08 16:24:38 by marvin           ###   ########.fr       */
+/*   Created: 2022/05/09 09:28:24 by mhenriqu          #+#    #+#             */
+/*   Updated: 2022/07/09 16:57:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	putnbr_u(unsigned int nbr)
+size_t	ft_strlen(const char *s)
 {
-	char	*str;
-	int		len;
+	size_t	i;
 
-	str = ft_utoa(nbr);
-	len = ft_putstr(str);
-	free(str);
-	return (len);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }

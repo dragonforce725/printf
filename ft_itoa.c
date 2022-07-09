@@ -1,56 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 20:43:14 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/09 17:02:49 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/09 16:57:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static int	num_size(unsigned int i)
+static int	size(int i)
 {
-	int	len;
+	int	size;
 
-	len = 0;
-	if (i <= 0)
-		len++;
-	while (i)
+	if (i == 0)
+		return (2);
+	size = 1;
+	if (i < 0)
 	{
-		len++;
-		i = i / 10;
+		i /= 10;
+		size += 2;
+		i = -1;
 	}
-	return (len);
+	while (i > 0)
+	{
+		i /= 10;
+		size++;
+	}
+	return (size);
 }
 
-char	*ft_utoa(unsigned int n)
+char	*ft_itoa(int n)
 {
-	int				len;
-	char			*str;
-	unsigned int	aux;
+	char	*str;
+	int		len;
+	int		sign;
 
-	len = num_size(n);
-	aux = n;
-	str = malloc(sizeof(char) * len + 1);
-	if (!str)
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	len = size(n);
+	sign = 0;
+	if (n < 0)
+	{
+		sign = 1;
+		n = -n;
+	}
+	str = (char *) malloc (len);
+	if (str == NULL)
 		return (NULL);
-	if (aux < 0)
+	str[--len] = '\0';
+	while (--len >= sign)
 	{
+		str[len] = n % 10 + '0';
+		n /= 10;
+	}
+	if (sign)
 		str[0] = '-';
-		aux = -aux;
-	}
-	if (aux == 0)
-		str[0] = '0';
-	str[len--] = '\0';
-	while (aux)
-	{
-		str[len] = aux % 10 + '0';
-		len--;
-		aux = aux / 10;
-	}
 	return (str);
 }

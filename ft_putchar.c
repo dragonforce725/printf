@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhenriqu <marcos.henrique.com.br725@gmail  +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 04:12:57 by mhenriqu          #+#    #+#             */
-/*   Updated: 2022/07/06 04:14:22 by mhenriqu         ###   ########.fr       */
+/*   Updated: 2022/07/08 16:24:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftprintf.h"
 
 int	ft_putchar(char c)
 {

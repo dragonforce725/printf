@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_u.c                                      :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/06 04:22:39 by mhenriqu          #+#    #+#             */
-/*   Updated: 2022/07/08 16:24:38 by marvin           ###   ########.fr       */
+/*   Created: 2022/05/25 05:46:14 by mhenriqu          #+#    #+#             */
+/*   Updated: 2022/07/09 17:07:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	putnbr_u(unsigned int nbr)
+char	*ft_strdup(const char *s1)
 {
-	char	*str;
+	int		i;
 	int		len;
+	char	*c;
 
-	str = ft_utoa(nbr);
-	len = ft_putstr(str);
-	free(str);
-	return (len);
+	len = 0;
+	while (s1[len])
+		++len;
+	c = (char *) malloc(sizeof(char) * (len +1));
+	if (c == NULL)
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		c[i] = s1[i];
+		i++;
+	}
+	c[i] = '\0';
+	return (c);
 }

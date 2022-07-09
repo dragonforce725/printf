@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_arg.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhenriqu <marcos.henrique.com.br725@gmail  +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 02:26:44 by mhenriqu          #+#    #+#             */
-/*   Updated: 2022/07/08 07:33:33 by mhenriqu         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:04:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libftprintf.h"
 
 int	ft_print_arg(const char *fmt, int i, va_list ap)
 {
@@ -22,15 +24,15 @@ int	ft_print_arg(const char *fmt, int i, va_list ap)
 		return (ft_putnbr(va_arg(ap,int)));
 	else if (fmt[i + 1] == 'u')
 		return (putnbr_u(va_arg(ap, unsigned int)));
-	else if (fmt[i + 1] == 'x') || fmt[i + 1] == 'X')
+	else if (fmt[i + 1] == 'x' || fmt[i + 1] == 'X')
 	{
-		if (fmt[i + 1 == 'X')
-			return (ft_puthex(va_arg(ap, unsigned int), "0123456789ABCDEF"));
+		if (fmt[i + 1] == 'X')
+			return (ft_put_hex(va_arg(ap, unsigned int), "0123456789ABCDEF"));
 		else
-			return (ft_puthex(va_arg(ap, unsigned int), "0123456789abcdef"));
+			return (ft_put_hex(va_arg(ap, unsigned int), "0123456789abcdef"));
 	}
 	else if (fmt[i + 1] == 'p')
-		return (ft_putstr("0x") + put_pointer(va_arg(ap,void *),
+		return (ft_putstr("0x") + ft_put_pointer(va_arg(ap,void *),
 					"0123456789abcdef"));
 	else
 		return (0);

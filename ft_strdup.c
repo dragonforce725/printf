@@ -6,11 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 05:46:14 by mhenriqu          #+#    #+#             */
-/*   Updated: 2022/07/09 17:07:34 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/12 16:16:19 by mhenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_strdup(const char *s1)
 {

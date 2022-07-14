@@ -6,58 +6,51 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 20:43:14 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/09 16:57:51 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/14 01:19:08 by mhenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	size(int i)
 {
-	int	size;
+	int	len;
 
-	if (i == 0)
-		return (2);
-	size = 1;
-	if (i < 0)
+	len = 0;
+	if (i <= 0)
+		len++;
+	while (i)
 	{
+		len++;
 		i /= 10;
-		size += 2;
-		i = -1;
 	}
-	while (i > 0)
-	{
-		i /= 10;
-		size++;
-	}
-	return (size);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		len;
-	int		sign;
+	long	aux;
+	int		i;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	len = size(n);
-	sign = 0;
-	if (n < 0)
-	{
-		sign = 1;
-		n = -n;
-	}
-	str = (char *) malloc (len);
-	if (str == NULL)
+	i = size(n);
+	aux = n;
+	str = (char *)malloc(sizeof(char) * (i + 1));
+	if (!str)
 		return (NULL);
-	str[--len] = '\0';
-	while (--len >= sign)
+	str[i] = '\0';
+	if (aux < 0)
 	{
-		str[len] = n % 10 + '0';
-		n /= 10;
-	}
-	if (sign)
 		str[0] = '-';
+		aux *= -1;
+	}
+	if (aux == 0)
+		str[0] = '0';
+	str[i--] = '\0';
+	while (aux)
+	{
+		str[i--] = (aux % 10) + '0';
+		aux /= 10;
+	}
 	return (str);
 }

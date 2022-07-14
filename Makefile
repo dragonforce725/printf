@@ -6,14 +6,14 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/06 01:21:26 by mhenriqu          #+#    #+#              #
-#    Updated: 2022/07/09 17:20:22 by marvin           ###   ########.fr        #
+#    Updated: 2022/07/13 23:08:51 by mhenriqu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC	= ft_printf.c\
 	  ft_printf_arg.c\
-	  ft_putchar.c\
-	  ft_putnbr.c\
+	  ft_putchar_fd.c\
+	  ft_putnbr_fd.c\
 	  ft_putnbr_u.c\
 	  ft_putstr.c\
 	  ft_utoa.c\

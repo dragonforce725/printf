@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 04:12:57 by mhenriqu          #+#    #+#             */
-/*   Updated: 2022/07/08 16:24:41 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/13 23:58:54 by mhenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_putchar_fd(char c)
 {
 	write (1, &c, 1);
 	return (1);

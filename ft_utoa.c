@@ -6,11 +6,11 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 20:43:14 by marvin            #+#    #+#             */
-/*   Updated: 2022/07/09 17:02:49 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/12 16:16:56 by mhenriqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	num_size(unsigned int i)
 {
